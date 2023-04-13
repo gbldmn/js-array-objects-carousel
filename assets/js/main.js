@@ -100,15 +100,15 @@ let dopo = document.querySelector(".dopo");
 
 //   creo tasti per logica slide automatica    
 
-    document.getElementById('avvia').addEventListener('click',function(){
+document.getElementById('avvia').addEventListener('click',function(){
         let fiz = setInterval(next, 4000);
-        let der = setInterval(prev, 1000)
+        let der = setInterval(prev, 1000);
 
    
    
- document.getElementById('ferma').addEventListener('click',function() {
+    document.getElementById('ferma').addEventListener('click',function(){
         clearInterval(fiz);
-        clearInterval(der)
- })
+        clearInterval(der);
+    })
      
- }) 
+}) 
