@@ -90,11 +90,17 @@ let dopo = document.querySelector(".dopo");
      prima.addEventListener('click', prev);
 
 
+     
 
-      let intervallo =  setInterval(next, 4000);
-      let richiamo = setInterval(prev, 1000);
+    document.getElementById('avvia').addEventListener('click',function(){
+        let casa = setInterval(next, 4000);
+        let cane = setInterval(prev, 1000)
 
-    document.getElementById('ferma').addEventListener('click',function(){
-        clearInterval(intervallo)
-        clearInterval(richiamo)
-    })
+   
+   
+ document.getElementById('ferma').addEventListener('click',function() {
+        clearInterval(casa);
+        clearInterval(cane)
+ })
+     
+ }) 
