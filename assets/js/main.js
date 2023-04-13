@@ -23,31 +23,69 @@ const images = [
 ];
 
 for (let i = 0; i < images.length; i++) {
-    console.log(document.querySelector('.items'))
     let elementiSingoli = images[i]
     console.log(elementiSingoli)
      if (i == 0 ) {
          document.querySelector('.items').innerHTML += 
          `<div class="item active primo">
-             <img src="img/${elementiSingoli.image}" alt="">
-             ${elementiSingoli.title}${elementiSingoli.text}
+             <img src="${elementiSingoli['image']}" alt="">
+             <div class="absolute">${elementiSingoli.title}<br>${elementiSingoli.text}</div>
          </div>`
      } else if (i == images.length - 1) { 
          document.querySelector('.items').innerHTML += 
          `<div class="item ultimo">
-             <img src="img/${elementiSingoli.image}" alt="">
-             ${elementiSingoli.title}${elementiSingoli.text}
+             <img src="${elementiSingoli.image}" alt="">
+             <div class="absolute">${elementiSingoli.title}<br>${elementiSingoli.text}</div>
          </div>`
        } else {
          document.querySelector('.items').innerHTML += 
          `<div class="item">
-             <img src="img/${elementiSingoli.image}" alt="">
-             ${elementiSingoli.title}${elementiSingoli.text}
+             <img src="${elementiSingoli.image}" alt="">
+             <div class="absolute">${elementiSingoli.title}<br>${elementiSingoli.text}</div>
          </div>`
-       }
+       }   
     
-   
-}
+}   
+
+
+let prima = document.querySelector(".prima");
+let dopo = document.querySelector(".dopo");
+
+     dopo.addEventListener('click', function(){
+     //  ragionamento da fare: selezionare il div con active
+     let activeItem = document.querySelector('.item.active');
+     console.log(activeItem)
+
+     let itemToActivate = activeItem.nextElementSibling;
+     console.log(itemToActivate)
+
+     if (activeItem.classList.contains ('ultimo')) {
+         itemToActivate = document.querySelector('.item.primo');
+     }
+     // rimozione classe block
+     activeItem.classList.remove('active');
+     // aggiunta classe block all'elemento successivo
+     itemToActivate.classList.add('active');
+
+     })
+
+     prima.addEventListener('click', function(){
+    //  ragionamento da fare: selezionare il div con active
+     let activeItem = document.querySelector('.item.active');
+     console.log(activeItem)
+     
+     let itemToActivate = activeItem.previousElementSibling;
+     console.log(itemToActivate)
+     
+     if (activeItem.classList.contains ('primo')) {
+     itemToActivate = document.querySelector('.item.ultimo');
+     }
+     // rimozione classe block
+     activeItem.classList.remove('active');
+     // aggiunta classe block all'elemento successivo
+     itemToActivate.classList.add('active');
+     
+     })
 
 
 

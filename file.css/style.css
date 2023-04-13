@@ -30,7 +30,12 @@ img {
 
  .item {
     display: none;
+    position: relative;
 } 
+.absolute {
+    position: absolute;
+    bottom: 10px
+}
 
 .dopo,.prima {
     font-size: 40px;
