@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.container {
+    width: 50%;
+    margin: 0 auto;
+}
+
+img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item.active {
+    display:block;
+
+}
+
+ .item {
+    display: none;
+} 
+
+.dopo,.prima {
+    font-size: 40px;
+    cursor: pointer;
+    
+}
+.prima {
+    margin-right: 20px;
+}
+.dopo {
+    margin-left: 20px;
+
+}
+button {
+    border-radius: 50px;
+    background-color: transparent;
+    color: black;
+    padding: 10px;
+    margin: 10px;
+}
