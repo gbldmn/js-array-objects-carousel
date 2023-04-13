@@ -2,12 +2,15 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: white;
 }
 
 
 .container {
     width: 50%;
     margin: 0 auto;
+    height: 100vh;
+    display: flex;
 }
 
 img {
@@ -21,6 +24,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
 }
 
 .item.active {
@@ -31,6 +35,9 @@ img {
  .item {
     display: none;
     position: relative;
+    width: 700px;
+    object-fit: cover;
+    height: 100%;
 } 
 .absolute {
     position: absolute;
@@ -55,4 +62,7 @@ button {
     color: black;
     padding: 10px;
     margin: 10px;
+}
+h2 { 
+    font-weight: bold;
 }

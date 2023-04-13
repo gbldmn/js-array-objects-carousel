@@ -29,19 +29,19 @@ for (let i = 0; i < images.length; i++) {
          document.querySelector('.items').innerHTML += 
          `<div class="item active primo">
              <img src="${elementiSingoli['image']}" alt="">
-             <div class="absolute">${elementiSingoli.title}<br>${elementiSingoli.text}</div>
+             <div class="absolute"><h2>${elementiSingoli.title}</h2><br>${elementiSingoli.text}</div>
          </div>`
      } else if (i == images.length - 1) { 
          document.querySelector('.items').innerHTML += 
          `<div class="item ultimo">
              <img src="${elementiSingoli.image}" alt="">
-             <div class="absolute">${elementiSingoli.title}<br>${elementiSingoli.text}</div>
+             <div class="absolute"><h2>${elementiSingoli.title}</h2><br>${elementiSingoli.text}</div>
          </div>`
        } else {
          document.querySelector('.items').innerHTML += 
          `<div class="item">
              <img src="${elementiSingoli.image}" alt="">
-             <div class="absolute">${elementiSingoli.title}<br>${elementiSingoli.text}</div>
+             <div class="absolute"><h2>${elementiSingoli.title}</h2><br>${elementiSingoli.text}</div>
          </div>`
        }   
     
@@ -50,9 +50,8 @@ for (let i = 0; i < images.length; i++) {
 
 let prima = document.querySelector(".prima");
 let dopo = document.querySelector(".dopo");
-
-     dopo.addEventListener('click', function(){
-     //  ragionamento da fare: selezionare il div con active
+     function next() {
+          //  ragionamento da fare: selezionare il div con active
      let activeItem = document.querySelector('.item.active');
      console.log(activeItem)
 
@@ -66,11 +65,12 @@ let dopo = document.querySelector(".dopo");
      activeItem.classList.remove('active');
      // aggiunta classe block all'elemento successivo
      itemToActivate.classList.add('active');
+     }
+     dopo.addEventListener('click', next);
 
-     })
-
-     prima.addEventListener('click', function(){
-    //  ragionamento da fare: selezionare il div con active
+     function prev() {
+       
+            //  ragionamento da fare: selezionare il div con active
      let activeItem = document.querySelector('.item.active');
      console.log(activeItem)
      
@@ -84,8 +84,17 @@ let dopo = document.querySelector(".dopo");
      activeItem.classList.remove('active');
      // aggiunta classe block all'elemento successivo
      itemToActivate.classList.add('active');
-     
-     })
+
+     }
+    
+     prima.addEventListener('click', prev);
 
 
 
+      let intervallo =  setInterval(next, 4000);
+      let richiamo = setInterval(prev, 1000);
+
+    document.getElementById('ferma').addEventListener('click',function(){
+        clearInterval(intervallo)
+        clearInterval(richiamo)
+    })
