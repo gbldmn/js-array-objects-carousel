@@ -22,9 +22,12 @@ const images = [
     }
 ];
 
+// ciclo l'array di oggeti per ricavarne i dati all'interno
+
 for (let i = 0; i < images.length; i++) {
     let elementiSingoli = images[i]
     console.log(elementiSingoli)
+//   creo div con all'interno elementi array
      if (i == 0 ) {
          document.querySelector('.items').innerHTML += 
          `<div class="item active primo">
@@ -48,59 +51,64 @@ for (let i = 0; i < images.length; i++) {
 }   
 
 
+// creo logica per muovere le foto con le frecce
+// quella di destra
 let prima = document.querySelector(".prima");
 let dopo = document.querySelector(".dopo");
      function next() {
           //  ragionamento da fare: selezionare il div con active
-     let activeItem = document.querySelector('.item.active');
-     console.log(activeItem)
+        let activeItem = document.querySelector('.item.active');
+        console.log(activeItem)
 
-     let itemToActivate = activeItem.nextElementSibling;
-     console.log(itemToActivate)
+         let itemToActivate = activeItem.nextElementSibling;
+        console.log(itemToActivate)
 
-     if (activeItem.classList.contains ('ultimo')) {
-         itemToActivate = document.querySelector('.item.primo');
+         if (activeItem.classList.contains ('ultimo')) {
+             itemToActivate = document.querySelector('.item.primo');
+        }
+         // rimozione classe block
+         activeItem.classList.remove('active');
+         // aggiunta classe block all'elemento successivo
+         itemToActivate.classList.add('active');
      }
-     // rimozione classe block
-     activeItem.classList.remove('active');
-     // aggiunta classe block all'elemento successivo
-     itemToActivate.classList.add('active');
-     }
-     dopo.addEventListener('click', next);
+    
+    dopo.addEventListener('click', next);
 
-     function prev() {
+// quella di sisnistra
+
+    function prev() {
        
-            //  ragionamento da fare: selezionare il div con active
-     let activeItem = document.querySelector('.item.active');
-     console.log(activeItem)
+         //  ragionamento da fare: selezionare il div con active
+        let activeItem = document.querySelector('.item.active');
+        console.log(activeItem)
      
-     let itemToActivate = activeItem.previousElementSibling;
-     console.log(itemToActivate)
+        let itemToActivate = activeItem.previousElementSibling;
+        console.log(itemToActivate)
      
-     if (activeItem.classList.contains ('primo')) {
-     itemToActivate = document.querySelector('.item.ultimo');
-     }
-     // rimozione classe block
-     activeItem.classList.remove('active');
-     // aggiunta classe block all'elemento successivo
-     itemToActivate.classList.add('active');
+        if (activeItem.classList.contains ('primo')) {
+            itemToActivate = document.querySelector('.item.ultimo');
+         }
+         // rimozione classe block
+         activeItem.classList.remove('active');
+        // aggiunta classe block all'elemento successivo
+         itemToActivate.classList.add('active');
 
-     }
+    }
     
      prima.addEventListener('click', prev);
 
 
-     
+//   creo tasti per logica slide automatica    
 
     document.getElementById('avvia').addEventListener('click',function(){
-        let casa = setInterval(next, 4000);
-        let cane = setInterval(prev, 1000)
+        let fiz = setInterval(next, 4000);
+        let der = setInterval(prev, 1000)
 
    
    
  document.getElementById('ferma').addEventListener('click',function() {
-        clearInterval(casa);
-        clearInterval(cane)
+        clearInterval(fiz);
+        clearInterval(der)
  })
      
  }) 
